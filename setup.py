@@ -8,7 +8,7 @@ setup(
             'pipmanager=commandline.PipManager:main',
         ],
     },
-    author='YourUsername',
-    description='Description of your package',
+    author='Alexidians',
+    description='manage python modules by installing, uninstalling, getting versions, getting an array of all of em.',
     url='https://alexidians.github.io/PipManager/package',
 )
