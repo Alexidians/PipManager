@@ -2,7 +2,7 @@ import sys
 import PipManager
 output = {}
 if(not len(sys.argv) >= 1):
-    print("[error] incorrect amount of arguments provided. provided:" + len(sys.argv) + " expected: ")
+    print("[error] incorrect amount of arguments provided. provided:" + len(sys.argv) + " expected: atleast 1 for checking.")
 exit()
 if(sys.argv[1] == "install"):
     if(not len(sys.argv) >= 2):
@@ -36,3 +36,23 @@ if(sys.argv[1] == "module_versions"):
     exit()
     output = PipManager.get_module_versions()
     print(output)
+if(sys.argv[1] == "upgrade"):
+    if(not len(sys.argv) >= 2):
+     print("[error] incorrect amount of arguments provided. provided:" + len(sys.argv) + " expected: atleast 2")
+    exit()
+    try:
+     output = PipManager.upgrade_module(sys.argv[2])
+    except Exception as e:
+     print("[error] An exception has accoured")
+     output["output"] = e
+    print(output["output"])
+if(sys.argv[1] == "info"):
+    if(not len(sys.argv) >= 2):
+     print("[error] incorrect amount of arguments provided. provided:" + len(sys.argv) + " expected: atleast 2")
+    exit()
+    try:
+     output = PipManager.module_info(sys.argv[2])
+    except Exception as e:
+     print("[error] An exception has accoured")
+     output["output"] = e
+    print(output["output"])
